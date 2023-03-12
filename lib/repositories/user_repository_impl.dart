@@ -22,7 +22,7 @@ class UserRepositoryImpl implements UserRepository {
   @override
   Future<UserModel> saveUser(UserModel user) async {
     try {
-      final result = await Dio().post('http://localhost:8080/user', data: jsonEncode(user.toMap()));      
+      final result = await Dio().post('http://localhost:8080/', data: jsonEncode(user.toMap()));      
       return UserModel.fromMap(result.data);
     } on DioError catch (e) {
       log("Erro ao buscar usuário", error: e);
